@@ -106,6 +106,10 @@ const fi = (function() {
 
     uniq: function(array, isSorted, callback){
 
+      let unique = [...new Set(array)]
+
+      console.log(unique)
+      return unique
     },
 
     keys: function(object){
@@ -119,8 +123,13 @@ const fi = (function() {
     },
 
     functions: function(object) {
-      // let r = Object.values(object)
-      // console.log(object)
+      let r = []
+      for (const m in object) {
+        if(typeof object[m] === "function") {
+          r.push(m)
+        }
+      }
+      return r.sort()
     },
 
 
@@ -128,3 +137,4 @@ const fi = (function() {
 })()
 
 fi.libraryMethod()
+
