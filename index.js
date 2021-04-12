@@ -89,10 +89,11 @@ const fi = (function() {
       return r
     },
 
-    sortBy: function(array, callback){
-      let newArray = [...array]
-      newArray = newArray.sort(callback())
-      console.log(newArray)
+    sortBy: function(collection, callback) {
+        const newArr = [...collection]
+        return newArr.sort(function(a, b) {
+          return callback(a) - callback(b)
+        })
     },
 
     flatten: function(array, shallow){ 
